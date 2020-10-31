@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <h1>Create Report</h1>
+
+  <%= form_for @report do |f| %>
+    <p>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+
+    </p>
+    <p>
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+      
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+  <% end %>
+
+</body>
+</html>
