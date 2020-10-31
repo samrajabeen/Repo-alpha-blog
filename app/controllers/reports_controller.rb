@@ -1,5 +1,5 @@
 class ReportsController < ApplicationController
-	def new
+    def new
 		@report =Report.new
 
 	end 
@@ -16,10 +16,25 @@ class ReportsController < ApplicationController
 	    end 
 	end 
 
-	def show
+	def edit
 		@report=Report.find(params[:id])
 	end
 
+	def update
+		@report=Report.find(params[:id])
+		if @report.update(report_params)
+			flash[:notice]="Report updated successfully"
+			redirect_to report_path(@report)
+		else
+			render 'edit'
+		end
+
+	end
+
+
+	def show
+		@report=Report.find(params[:id])
+	end
 
 	private
 	   def report_params
