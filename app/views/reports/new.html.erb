@@ -6,6 +6,16 @@
 <body>
   <h1>Create Report</h1>
 
+  <% if @report.errors.any? %>
+  <% @report.errors.full_messages.each do |msg| %>
+  <ul>
+    <li>
+      <%= msg %>
+    </li>
+  </ul>
+  <% end %>
+  <% end %>
+
   <%= form_for @report do |f| %>
     <p>
       <%= f.label :title %>
