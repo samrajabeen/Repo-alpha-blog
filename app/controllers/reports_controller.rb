@@ -9,9 +9,6 @@ class ReportsController < ApplicationController
 
 	end 
 
-	
-
-
 	def create
 		#render plain :params[:report].inspect
 		@report=Report.new(report_params)
@@ -38,10 +35,16 @@ class ReportsController < ApplicationController
 
 	end
 
-
 	def show
 		@report=Report.find(params[:id])
 	end
+
+	def destroy
+		@report=Report.find(params[:id])
+		@report.destroy
+        flash[:notice] = "Report deleted Successfully"
+        redirect_to reports_path
+    end 
 
 	private
 	   def report_params
